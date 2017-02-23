@@ -1,17 +1,10 @@
 from collections import Counter
 
 def string2freq(x): # x is a string of symbols from alphabet S
-    S = Counter(x)
-
-    for index, i in enumerate(x):
-        if i not in S:
-            S.append(i)
-            f.append(1)
-        elif i in S:
-            list(x).count(i)
-
-
-    x.count(i for i in x)
+    sorted(x)
+    Count = Counter(x)
+    S = sorted(Count.elements())
+    f = [Count[word] for word in Count]
     return(S,f)
 
 

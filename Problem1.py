@@ -16,7 +16,6 @@ def string2freq(x): # x is a string of symbols from alphabet S
 
     return S, f;
 
-
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
 #using a fixed length code
     H.empty() #initialize H
@@ -38,3 +37,8 @@ def encodeString(x,T):
     y = ""#empty string
     for i in len(x) : y += T[x[i]] # encode each symbol of x
     return y
+
+		f[k] = f[i]+f[j]
+		H.insert(k,f[k])
+	#creat t and return in
+	return T

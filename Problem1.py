@@ -18,5 +18,9 @@ def huffmanencode(S,f):
 
 
 
-def encodeString(x,T):
+def encodeString(x,T):ghvgh
     # TODO: Part (iii)
+
+
+nhhbhb
+jh

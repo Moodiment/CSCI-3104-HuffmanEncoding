@@ -3,7 +3,7 @@ from HeapTest import BinHeap
 
 
 def string2freq(x): # x is a string of symbols from alphabet.
-    S = sorted(set(x))
+    S = sorted(set(x)) #Can I use this?
     f = list()
     for character in S:
         f.append(x.count(character))
@@ -27,3 +27,8 @@ def encodeString():
 
 Object = BinHeap()
 Object.buildHeap([4,1,2,3,4,5,2])
+
+
+Heap = BinHeap()
+
+Heap.insert(2)

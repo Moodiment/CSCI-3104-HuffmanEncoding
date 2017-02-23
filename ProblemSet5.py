@@ -11,7 +11,7 @@ def string2freq(x): # x is a string of symbols from alphabet.
 
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     #TODO: Heap = minheap() // initialize minHeap from class.
-
+    H = BinHeap() # H.initialize
     for i in range(len(S)):
         #TODO: H.insert(i(f[i]))
         print("")
@@ -25,10 +25,4 @@ def encodeString():
 
 #Testhing...
 
-Object = BinHeap()
-Object.buildHeap([4,1,2,3,4,5,2])
-
-
-Heap = BinHeap()
-
-Heap.insert(2)
+print(string2freq("asd!!!$$###fasdas"))

@@ -1,5 +1,5 @@
 
-
+x="the road not taken by robert frost two roads diverged in a yellow wood, and sorry i could not travel both and be one traveler, long i stood and looked down one as far as i could to where it bent in the undergrowth; then took the other, as just as fair, and having perhaps the better claim, because it was grassy and wanted wear; though as for that the passing there had worn them really about the same, and both that morning equally lay in leaves no step had trodden black. oh, i kept the first for another day! yet knowing how way leads on to way, i doubted if i should ever come back. i shall be telling this with a sigh somewhere ages and ages hence: two roads diverged in a wood, and i- i took the one less traveled by, and that has made all the difference."
 def string2freq(x): # x is a string of symbols from alphabet S
     S=vector(x) #list of unique symbols not yet in lexigraphical priority binary heap in an vector
     #store numbers as (key, value) = (leter, frequency)
@@ -8,7 +8,7 @@ def string2freq(x): # x is a string of symbols from alphabet S
     for i in (len(x) - 1): #increment by i/2, do not want to check all of the inputs
         if (s[i/2] == s[i]): f[i]+=1
 
-        if (s[i/2] < S[i]): 
+        if (s[i/2] < S[i]):
 			#swap the terms
 
             #historgram of frequencies of symbols in x, same order:
@@ -36,5 +36,5 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
 
 def encodeString(x,T):
     y = ""#empty string
-    for i in x.len() : y += T[x[i]] # encode each symbol of x
+    for i in len(x) : y += T[x[i]] # encode each symbol of x
     return y

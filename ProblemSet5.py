@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter,defaultdict
 
 def string2freq(x): # x is a string of symbols from alphabet.
     S = sorted(list(x))

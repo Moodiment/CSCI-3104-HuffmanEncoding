@@ -1,4 +1,6 @@
 from collections import Counter,defaultdict
+from HeapTest import BinHeap
+
 
 def string2freq(x): # x is a string of symbols from alphabet.
     S = sorted(set(x))
@@ -12,11 +14,16 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
 
     for i in range(len(S)):
         #TODO: H.insert(i(f[i]))
-    for
+        print("")
 
 
 def encodeString():
     # TODO:
-    print('s')
+    print("")
 
-print(string2freq("aaasssssssssdd"))
+
+
+#Testhing...
+
+Object = BinHeap()
+Object.buildHeap([4,1,2,3,4,5,2])

@@ -1,5 +1,5 @@
 #Heap test
-class BinHeap:
+class MinHeap:
     def __init__(self):
         # Initalize a list to used for tuple
         self.hList = [0]

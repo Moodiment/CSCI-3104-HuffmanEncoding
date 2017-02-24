@@ -12,7 +12,8 @@ def string2freq(x): # x is a string of symbols from alphabet.
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
 #create huffman tree. Depth first search on huffman encode, add binary code to dictionary with key as key.
     #TODO: Heap = minheap() // initialize minHeap from class.
-    H = BinHeap() # H.initialize
+    H = minHeap() # H.initialize
+    n = len(f)
     for i in range(len(S)):
         #TODO: H.insert(i(f[i]))
         print("")

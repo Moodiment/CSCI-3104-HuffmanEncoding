@@ -20,12 +20,12 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
 #using a fixed length code
     H.empty() #initialize H
     #buiding the huffman tree from bottom up, but in an array
-    n=len(S)
+    n=len(f)
     for i in n : H.insert(i,f[i])
     k=n+1
     for k in 2*n-1 :
-        i = H.deletmin()  # pop the right child
-        j=  H.deletmin()   #pop the left child
+        i = H.deletmin()  # pop the right child append a one to the string
+        j=  H.deletmin()   #pop the left child append a zero to the string
 		#creat a node numbered k with children i,j
         f[k] = f[i]+f[j] # frequencies added together
         H.insert(k,f[k])
@@ -38,7 +38,5 @@ def encodeString(x,T):
     for i in len(x) : y += T[x[i]] # encode each symbol of x
     return y
 
-		f[k] = f[i]+f[j]
-		H.insert(k,f[k])
-	#creat t and return in
-	return T
+def encodeString(x,T):ghvgh
+    # TODO: Part (iii)

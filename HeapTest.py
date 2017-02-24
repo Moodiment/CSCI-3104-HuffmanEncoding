@@ -40,10 +40,10 @@ class BinHeap:
 
     def percUp(self,i):
         while i // 2 > 0:
-          if self.heapList[i] < self.heapList[i // 2]:
-             tmp = self.heapList[i // 2]
-             self.heapList[i // 2] = self.heapList[i]
-             self.heapList[i] = tmp
+          if self.hList[i] < self.hList[i // 2]:
+             tmp = self.hList[i // 2]
+             self.hList[i // 2] = self.hList[i]
+             self.hList[i] = tmp
           i = i // 2
 
     def delMin(self):
@@ -56,7 +56,7 @@ class BinHeap:
 
 
 bh = BinHeap()
-<<<<<<< HEAD
+
 #bh.buildHeap(["a","s","d"])
 
 
@@ -64,10 +64,6 @@ print(bh.insert(23,"a"))
 print(bh.insert(2,"!"))
 print(bh.insert(21,"sss"))
 print(bh.insert(25,"asweqd"))
-=======
-
-bh.buildHeap(["z","f","l","b"])
->>>>>>> origin/master
 
 print(bh.delMin())
 print(bh.delMin())

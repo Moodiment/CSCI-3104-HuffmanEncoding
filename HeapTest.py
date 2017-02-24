@@ -8,10 +8,10 @@ class BinHeap:
 
     def BubbleUp(self,i):
         while i // 2 > 0:
-          if self.hList[i][0] < self.hList[i // 2][0]:
-             tmp = self.hList[i // 2]
+          if self.hList[i][0] < self.hList[i // 2][0]: #Check to see if
+             temp = self.hList[i // 2]
              self.hList[i // 2] = self.hList[i]
-             self.hList[i] = tmp
+             self.hList[i] = temp
           i = i // 2
 
     def insert(self,k, j):
@@ -20,7 +20,7 @@ class BinHeap:
       self.BubbleUp(self.currentSize)
 
 
-    def percDown(self,i):
+    def BubbleDown(self,i):
       while (i * 2) <= self.currentSize:
           mc = self.minChild(i)
           if self.hList[i][0] > self.hList[mc][0]:
@@ -38,20 +38,12 @@ class BinHeap:
           else:
               return i * 2 + 1
 
-    def percUp(self,i):
-        while i // 2 > 0:
-          if self.hList[i] < self.hList[i // 2]:
-             tmp = self.hList[i // 2]
-             self.hList[i // 2] = self.hList[i]
-             self.hList[i] = tmp
-          i = i // 2
-
     def delMin(self):
       retval = self.hList[1]
       self.hList[1] = self.hList[self.currentSize]
       self.currentSize = self.currentSize - 1
       self.hList.pop()
-      self.percDown(1)
+      self.BubbleDown(1)
       return retval
 
 

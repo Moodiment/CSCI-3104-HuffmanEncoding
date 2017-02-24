@@ -14,8 +14,8 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     #TODO: Heap = minheap() // initialize minHeap from class.
     H = minHeap() # H.initialize
     n = len(f)
-    for i in range(len(S)):
-        #TODO: H.insert(i(f[i]))
+    for i in range(len(n)):
+        H.insert()
         print("")
 
 

@@ -1,5 +1,5 @@
 from collections import Counter,defaultdict
-from HeapTest import BinHeap
+from HeapTest import MinHeap
 
 
 def string2freq(x): # x is a string of symbols from alphabet.
@@ -15,13 +15,15 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     H = minHeap() # H.initialize
     n = len(f)
     for i in range(len(n)):
-        H.insert()
-        print("")
+        H.insert(f[i],S[i]) #Insert frequency, characater
+    for k in range(len(f)):
+        i = H.delMin()
+        j = H.delMin()
 
 
 def encodeString():
     # TODO:
-    print("")
+    print("Placeholder print")
 
 
 

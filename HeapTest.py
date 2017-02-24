@@ -56,7 +56,7 @@ class BinHeap:
 
 
 bh = BinHeap()
-<<<<<<< HEAD
+
 #bh.buildHeap(["a","s","d"])
 
 
@@ -64,10 +64,6 @@ print(bh.insert(23,"a"))
 print(bh.insert(2,"!"))
 print(bh.insert(21,"sss"))
 print(bh.insert(25,"asweqd"))
-=======
-
-bh.buildHeap(["z","f","l","b"])
->>>>>>> origin/master
 
 print(bh.delMin())
 print(bh.delMin())

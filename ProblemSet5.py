@@ -1,5 +1,6 @@
 from collections import Counter,defaultdict
 from HeapTest import MinHeap
+import DFTInorder
 
 
 def string2freq(x): # x is a string of symbols from alphabet.
@@ -20,6 +21,10 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         i = H.delMin()
         j = H.delMin()
 
+    for i in n:
+        T[i]=DFTInOrder(H, i)
+
+return T
 
 def encodeString():
     # TODO:

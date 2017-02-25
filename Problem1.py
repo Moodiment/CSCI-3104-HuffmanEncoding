@@ -30,7 +30,10 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         f[k] = f[i]+f[j] # frequencies added together
         H.insert(k,f[k])
         #creat T the codebook and return it
-        T=[len(H)]
+        #do Depth first in order traversal to get encoding string and append it to the s is the character, e is the encode
+        for i in n:
+            T[i]=DFTInOrder(H, i)
+
     return T
 
 def encodeString(x,T):

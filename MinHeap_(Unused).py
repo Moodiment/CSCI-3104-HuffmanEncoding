@@ -14,7 +14,7 @@ class MinHeap:
         while i != 1:
             j =i/2 # parent of the node
             #test if it is right or left node
-            if j == i*2+1 : s+"i"
+            if j == i*2+1 : s+"1" #or we could do if i mod 2 == 1, testing if it is odd
             else: s+"0"
             i/=2
         return s

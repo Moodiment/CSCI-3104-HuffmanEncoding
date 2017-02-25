@@ -16,5 +16,5 @@ class MinHeap:
             #test if it is right or left node
             if j == i*2+1 : s+"i"
             else: s+"0"
-            i-=1
+            i/=2
         return s

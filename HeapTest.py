@@ -1,5 +1,4 @@
 #Heap test
-from random import randrange
 class MinHeap:
     def __init__(self): #Constructor
         # Initalize a list to used for tuple
@@ -27,7 +26,7 @@ class MinHeap:
     def insert(self,k, j):
       self.hList.append([k, j]) #Add the tuple, frequency and character to the end of the Heap
       self.currentSize = self.currentSize + 1 #Incriment the Heap
-      self.BubbleUp(self.currentSize) # Because we added the tuple to the end of the list, we need to bubble it up
+      self.BubbleUp(self.k) # Because we added the tuple to the end of the list, we need to bubble it up
 
     def FindChild(self,i):
       if i * 2 + 1 > self.currentSize:

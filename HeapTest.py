@@ -10,7 +10,7 @@ class Node:
 class MinHeap:
     def __init__(self): #Constructor
         # Initalize a list to used for tuple
-        self.hList = [0]
+        self.hList = Node(-1,0,None,None)
         # Current size of heap.
         self.currentSize = 0
 

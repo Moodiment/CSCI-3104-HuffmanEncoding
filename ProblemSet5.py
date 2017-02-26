@@ -21,24 +21,35 @@ def string2freq(read_string): # x is a string of symbols from alphabet.
     return S, f
 
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
-#create huffman tree. Depth first search on huffman encode, add binary code to dictionary with key as key.
-    #TODO: Heap = minheap() // initialize minHeap from class.
+    """
+    Create a minHeap and add the nodes into it.
+    """
     H = MinHeap() # H.initialize
     n = len(f)
     for i in range(n):
-        new_node = Node(f[i], S[i], None, None)
-        H.insert(new_node) #Insert frequency, characater
-        # print(new_node.freq)
-        # print(new_node.char)
-        # input()
+        new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest.
+        H.insert(new_nochild_node) #Insert frequency, characater
+
+    """ ### Debugging ###
     for i in range(H.currentSize):
         item = H.hList[i+1]
         print(item)
-        if(item.leftNode or item.rightNode):
+
+        if(item.leftNode or item.rightNode): #If there exists some right or left node.
             print(item.leftNode.char)
         else: print("NONE")
+
         input()
-        #Now I need to assocaite old node (base of huffman) with new node
+        #Now I need to assocaite old node (base of huffman) with new node per tier
+    ### END DEBUGGING ### """
+
+    for ii in range(n+1)
+        """
+        Returns the lowest nodes on the tree to build the Huffman tree.
+        """
+        i = H.delMin()
+        j = h.delMin()
+        new_node =
 
     # k = n+1
     # n = 2*n-1

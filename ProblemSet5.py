@@ -1,6 +1,6 @@
 from collections import Counter,defaultdict
 from HeapTest import MinHeap, Node
-from TreePrint import printCodes
+from TreePrint import printTree, printCodes
 import DFTInorder
 
 read_in_string="the road not taken by robert frost two roads diverged in a yellow wood, and \
@@ -56,12 +56,22 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             new_node = Node(k_sum, -1, i, j)
             H.insert(new_node)
             #print(new_node.freq)
-        elif(len(H.hList) <= 2): #one item left in the tree
-            i = H.delMin()
-            new_node = Node(i.freq,-1,i,None) #Create one leaf node
-            root_node = new_node
-            break
-    printCodes(root_node)
+        else: break
+    print(H.hList[1].freq)
+    root_node = H.hList[1]
+        # root_node = H.delMin()
+
+        # elif(len(H.hList) <= 2): #one item left in the tree
+        #     i = H.delMin()
+        #     new_node = Node(i.freq,-1,i,None) #Create one leaf node
+        #     root_node = new_node
+        #     # print(len(H.hList))
+        #     # print(H.hList)
+        #     # input()
+        #     break
+
+    printTree(root_node)
+    printCodes(root_node,"")
 
     #print(root_node.freq)
 

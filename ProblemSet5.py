@@ -55,8 +55,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             k_sum = i.freq + j.freq
             new_node = Node(k_sum, -1, i, j)
             H.insert(new_node)
-            print(new_node.freq)
-            #print(len(H.hList))
+            #print(new_node.freq)
         elif(len(H.hList) <= 2): #one item left in the tree
             i = H.delMin()
             new_node = Node(i.freq,-1,i,None) #Create one leaf node

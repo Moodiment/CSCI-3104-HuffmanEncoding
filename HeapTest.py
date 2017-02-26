@@ -1,6 +1,6 @@
-from random import randrange
 
 class Node:
+    def __init__(self, freq,char,leftNode,rightNode):
         self.char = char
         self.freq = freq
         self.rightNode = rightNode

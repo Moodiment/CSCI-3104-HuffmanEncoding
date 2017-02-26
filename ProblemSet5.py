@@ -1,5 +1,6 @@
 from collections import Counter,defaultdict
 from HeapTest import MinHeap, Node
+from TreePrint import printCodes
 import DFTInorder
 
 read_in_string="the road not taken by robert frost two roads diverged in a yellow wood, and \
@@ -43,13 +44,27 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         #Now I need to assocaite old node (base of huffman) with new node per tier
     ### END DEBUGGING ### """
 
-    for ii in range(n+1)
+    root_node = None
+    while(True):
         """
         Returns the lowest nodes on the tree to build the Huffman tree.
         """
-        i = H.delMin()
-        j = h.delMin()
-        new_node =
+        if (len(H.hList) > 2): #two items left in the tree
+            i = H.delMin()
+            j = H.delMin()
+            k_sum = i.freq + j.freq
+            new_node = Node(k_sum, -1, i, j)
+            H.insert(new_node)
+            print(new_node.freq)
+            #print(len(H.hList))
+        elif(len(H.hList) <= 2): #one item left in the tree
+            i = H.delMin()
+            new_node = Node(i.freq,-1,i,None) #Create one leaf node
+            root_node = new_node
+            break
+    printCodes(root_node)
+
+    #print(root_node.freq)
 
     # k = n+1
     # n = 2*n-1

@@ -28,10 +28,18 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     for i in range(n):
         new_node = Node(f[i], S[i], None, None)
         H.insert(new_node) #Insert frequency, characater
-        print(new_node.freq)
-        print(new_node.char)
+        # print(new_node.freq)
+        # print(new_node.char)
+        # input()
+    for i in range(H.currentSize):
+        item = H.hList[i+1]
+        print(item)
+        if(item.leftNode or item.rightNode):
+            print(item.leftNode.char)
+        else: print("NONE")
         input()
-    #
+        #Now I need to assocaite old node (base of huffman) with new node
+
     # k = n+1
     # n = 2*n-1
     # for k in range(n+1, 2*n-1):

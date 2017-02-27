@@ -31,19 +31,6 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest.
         H.insert(new_nochild_node) #Insert frequency, characater
 
-    """ ### Debugging ###
-    for i in range(H.currentSize):
-        item = H.hList[i+1]
-        print(item)
-
-        if(item.leftNode or item.rightNode): #If there exists some right or left node.
-            print(item.leftNode.char)
-        else: print("NONE")
-
-        input()
-        #Now I need to assocaite old node (base of huffman) with new node per tier
-    ### END DEBUGGING ### """
-
     root_node = None
     while(True): #O(n log(n)) time for insertion and then extraction
         """

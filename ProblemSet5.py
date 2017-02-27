@@ -57,44 +57,11 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             H.insert(new_node)
             #print(new_node.freq)
         else: break
-    #print(H.hList[1].freq)
     root_node = H.hList[1]
-        # root_node = H.delMin()
-
-        # elif(len(H.hList) <= 2): #one item left in the tree
-        #     i = H.delMin()
-        #     new_node = Node(i.freq,-1,i,None) #Create one leaf node
-        #     root_node = new_node
-        #     # print(len(H.hList))
-        #     # print(H.hList)
-        #     # input()
-        #     break
-
-    # printTree(root_node)
-
     adict = dict(printCodes(root_node,""))
-    print(adict)
-    # zz = printCodes("",root_node,"")
-    # print(zz)
-    #print(root_node.freq)
 
-    # k = n+1
-    # n = 2*n-1
-    # for k in range(n+1, 2*n-1):
-    #     i = H.delMin() #Return a tuple from the lowest element
-    #     j = H.delMin()
-    #
-    #     # f[k] = f[i] + f[j]
-    #     TempNode = Node(i[0]+j[0],-1,i,j)
-    #     print(TempNode)
-    #
-    #     input()
-    #
-    # T = []
-    # for i in n:
-    #     T.append(DFTInOrder(H, i))
-    #
-    # return T
+    return adict
+
 
 def encodeString():
     return

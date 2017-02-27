@@ -60,6 +60,8 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             break #Stops while loop when 2 or less items remain in the heap
     root_node = H.hList[1] #associates the last item on the heap as the root node
 
+    ####################################
+
     adict = dict(printCodes(root_node,"")) #Passes in the root node into a recursive function
     #this recursive function will return a list of characters with their corresponding binary code.
 
@@ -81,7 +83,7 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 # print(y)
 # print(len(y))
 
-input_size = 1500
+input_size = 2000
 randChar = sorted(set(''.join(choices(string.ascii_lowercase, k=input_size))))
 adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar)))
 

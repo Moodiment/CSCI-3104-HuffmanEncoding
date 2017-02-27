@@ -1,7 +1,6 @@
 from collections import Counter,defaultdict
 from HeapTest import MinHeap, Node
 from TreePrint import printTree, printCodes
-import DFTInorder
 
 read_in_string="the road not taken by robert frost two roads diverged in a yellow wood, and \
 sorry i could not travel both and be one traveler, long i stood and looked down\
@@ -16,6 +15,7 @@ sorry i could not travel both and be one traveler, long i stood and looked down\
 
 def string2freq(read_string): # x is a string of symbols from alphabet.
     S = sorted(set(read_string)) #Sorts and takes only unique elemetns from read_string
+    #O(n log(n))
     f = list() #creates a list
     for character in S: #for all char in S
         f.append(read_string.count(character)) #adds the number of times something appears in read_string to f
@@ -45,7 +45,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     ### END DEBUGGING ### """
 
     root_node = None
-    while(True):
+    while(True): #O(n log(n)) time for insertion and then extraction
         """
         Returns the lowest nodes on the tree to build the Huffman tree.
         """
@@ -76,3 +76,4 @@ adict = huffmanEncode(S, f)
 y = encodeString(read_in_string, adict)
 
 print(y)
+print(len(y))

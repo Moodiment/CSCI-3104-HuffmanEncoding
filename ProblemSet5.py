@@ -57,7 +57,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             H.insert(new_node)
             #print(new_node.freq)
         else: break
-    print(H.hList[1].freq)
+    #print(H.hList[1].freq)
     root_node = H.hList[1]
         # root_node = H.delMin()
 
@@ -70,9 +70,12 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         #     # input()
         #     break
 
-    printTree(root_node)
-    printCodes(root_node,"")
+    # printTree(root_node)
 
+    adict = dict(printCodes(root_node,""))
+    print(adict)
+    # zz = printCodes("",root_node,"")
+    # print(zz)
     #print(root_node.freq)
 
     # k = n+1

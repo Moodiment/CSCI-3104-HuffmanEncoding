@@ -1,4 +1,5 @@
 from collections import Counter
+import ast
 def printTree(node): #Not sure if this works.
     print("Current tree:")
     print(node.freq)
@@ -12,13 +13,14 @@ def printTree(node): #Not sure if this works.
         printTree(node.rightNode)
     # else: print("END")
 
-def printCodes(node,code): #Runtime of O(n)
-
-    if (not node):
-        return
+def printCodes(node,code):
+    T = []
     if (node.char != -1):
-        print(node.char+ " : " + code)
+        return [(node.char,code)]
+        #return [(str(node.char)+ ":" + str(code))]
 
 
-    printCodes(node.leftNode, code+"0")
-    printCodes(node.rightNode, code+"1")
+    T = T + printCodes(node.leftNode, code+"0")
+    T = T + printCodes(node.rightNode, code+"1")
+
+    return T

@@ -15,10 +15,10 @@ sorry i could not travel both and be one traveler, long i stood and looked down\
     the one less traveled by, and that has made all the difference."
 
 def string2freq(read_string): # x is a string of symbols from alphabet.
-    S = sorted(set(read_string)) #Can I use this?
-    f = list()
-    for character in S:
-        f.append(read_string.count(character))
+    S = sorted(set(read_string)) #Sorts and takes only unique elemetns from read_string
+    f = list() #creates a list
+    for character in S: #for all char in S
+        f.append(read_string.count(character)) #adds the number of times something appears in read_string to f
     return S, f
 
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
@@ -49,30 +49,30 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         """
         Returns the lowest nodes on the tree to build the Huffman tree.
         """
-        if (len(H.hList) > 2): #two items left in the tree
-            i = H.delMin()
+        if (len(H.hList) > 2): #Runs when at least two items remain in the heap
+            i = H.delMin() #Collect two minimum frequency nodes from heap
             j = H.delMin()
-            k_sum = i.freq + j.freq
+            k_sum = i.freq + j.freq #sum those frequencies to make huffman tree
             new_node = Node(k_sum, -1, i, j)
-            H.insert(new_node)
-            #print(new_node.freq)
-        else: break
-    root_node = H.hList[1]
-    adict = dict(printCodes(root_node,""))
+            H.insert(new_node) #Add that single node back in to heap
+        else: break #Stops while loop when 2 or less items remain in the heap
+    root_node = H.hList[1] #associates the last item on the heap as the root node
+
+    adict = dict(printCodes(root_node,"")) #Passes in the root node into a recursive function
+    #this recursive function will return a list of characters with their corresponding binary code.
 
     return adict
 
 
-def encodeString(x, T):
+def encodeString(x, T): #verbatim from the writeup. Compiles all the code's togeather.
     y = ""
     for ii in range(1, len(x)):
         y = y + T[x[ii]]
     return y
 
-#
+
 S, f = string2freq(read_in_string)
 adict = huffmanEncode(S, f)
-
 y = encodeString(read_in_string, adict)
 
 print(y)

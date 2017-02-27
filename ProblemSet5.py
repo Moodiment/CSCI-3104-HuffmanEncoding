@@ -63,16 +63,16 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     return adict
 
 
-def encodeString():
-    return
+def encodeString(x, T):
+    y = ""
+    for ii in range(1, len(x)):
+        y = y + T[x[ii]]
+    return y
 
-
+#
 S, f = string2freq(read_in_string)
-#print(str(S)+" " + str(f))
-huffmanEncode(S, f)
+adict = huffmanEncode(S, f)
 
+y = encodeString(read_in_string, adict)
 
-
-#Testing...
-
-#print(string2freq("asd!!!$$###fasdas"))
+print(y)

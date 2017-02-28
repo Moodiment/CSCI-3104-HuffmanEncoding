@@ -26,7 +26,7 @@ def string2freq(read_string): # x is a string of symbols from alphabet.
     f = list() #creates a list
     for character in S: #for all char in S
         f.append(read_string.count(character)) #adds the number of times something appears in read_string to f
-    return S, f
+    return S, makeHuffmanInput(len(S))
 
 def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     """
@@ -83,9 +83,9 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 # print(y)
 # print(len(y))
 
-input_size = 2000
-randChar = sorted(set(''.join(choices(string.ascii_lowercase, k=input_size))))
-adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar)))
+input_size =3000
+randChar = sorted(set(''.join(choices(string.ascii_lowercase, k=input_size)))) #generates random characters from input size
+adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
 
 print(adict)
 print(operation)

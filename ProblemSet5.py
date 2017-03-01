@@ -3,7 +3,7 @@ from HeapTest import MinHeap, Node
 from TreePrint import printTree, printCodes
 from helper import makeHuffmanInput, writeCSV
 from math import ceil
-from random import choices, randrange
+from random import choices
 import string
 
 read_in_string="the road not taken by robert frost two roads diverged in a yellow wood, and \
@@ -60,9 +60,6 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             # build_count = log(build_count,2) #Take the log base 2 of each count for this step.
             break #Stops while loop when 2 or less items remain in the heap
     root_node = H.hList[1] #associates the last item on the heap as the root node
-
-    ####################################
-
     adict = dict(printCodes(root_node,"")) #Passes in the root node into a recursive function
     #this recursive function will return a list of characters with their corresponding binary code.
 
@@ -76,19 +73,20 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
     return y
 
 
+""" DEBUGGING FROM PART 1a
+S, f = string2freq(read_in_string)
+adict = huffmanEncode(S, f)
+y = encodeString(read_in_string, adict)
+print(y)
+print(len(y))
+"""
 
-# S, f = string2freq(read_in_string)
-# adict = huffmanEncode(S, f)
-# y = encodeString(read_in_string, adict)
+######## BEGIN DEBUGGING AND IMPLEMENTATION OF PART 2
 
-# print(y)
-# print(len(y))
-
-if(True):
-    number_of_tests = 100
-    list_operations = []
-    list_input = list(range(2, 51)) #creates a list with 10 values.
-    dataDict = dict()
+if(True): #if is to turn off for debugging.
+    number_of_tests = 100 #Number of tests to complete to average. Higher is better cause pythons random is crap
+    list_input = list(range(2, 51)) #creates a list up to 52-2 values.
+    dataDict = dict() #Creates a dict to store the data.
     for jj in list_input:
         input_size = jj
         operations = []
@@ -96,11 +94,14 @@ if(True):
             randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
             adict, counted_operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
             operations.append(counted_operation)
-        avg = mean(operations)
-        dataDict.update({jj:ceil(avg)})
+        avg = mean(operations) #Average
+        dataDict.update({jj:ceil(avg)}) #jj is input. avg is the averaged number of operations for that test.
+        #not sure why I'm using a dictionary here. :\ TA advised this. I could use list.
 
     print(dataDict)
     writeCSV(dataDict)
+
+#Below is debugging information to test out implementation.
 
 input_size = 30
 randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size

@@ -85,13 +85,19 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 # print(len(y))
 
 if(True):
+    number_of_tests = 100
     list_operations = []
     list_input = list(range(2, 51)) #creates a list with 10 values.
     dataDict = dict()
     for jj in list_input:
         input_size = jj
+        operations = []
         for ii in range(number_of_tests):
             randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
+            adict, counted_operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
+            operations.append(counted_operation)
+        avg = mean(operations)
+        dataDict.update({jj:ceil(avg)})
 
     print(dataDict)
     writeCSV(dataDict)

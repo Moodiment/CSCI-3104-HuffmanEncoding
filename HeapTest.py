@@ -14,7 +14,7 @@ class Node:
 class MinHeap:
     def __init__(self): #Constructor
         # Initalize a list to used for tuple
-        self.hList = [0]
+        self.hList = [0] #We must start with one element in the heap for integer division
         # Current size of heap.
         self.currentSize = 0
 
@@ -28,9 +28,9 @@ class MinHeap:
 
     def BubbleDown(self,i):
       while (i * 2) <= self.currentSize: #While loop to move down the tree.
-          mc = self.FindChild(i) #
-          if self.hList[i].freq > self.hList[mc].freq:
-              tmp = self.hList[i]
+          mc = self.FindChild(i) # Search for minimum child given i.
+          if self.hList[i].freq > self.hList[mc].freq: #Compares the minimum child from the current node
+              tmp = self.hList[i] #same as bubbleup, but for bubble down.
               self.hList[i] = self.hList[mc]
               self.hList[mc] = tmp
           i = mc
@@ -50,11 +50,11 @@ class MinHeap:
               return i * 2 + 1
 
     def delMin(self):
-      retval = self.hList[1]
-      self.hList[1] = self.hList[self.currentSize]
-      self.currentSize = self.currentSize - 1
-      self.hList.pop()
-      self.BubbleDown(1)
+      retval = self.hList[1] #Pops the top value off the que
+      self.hList[1] = self.hList[self.currentSize] #Collects the last item in the que and replaces it with the popped item
+      self.currentSize = self.currentSize - 1 #Decrements current size cause we're deleting
+      self.hList.pop() # Pops lowest value off list
+      self.BubbleDown(1) #Bubbles d own the first element in the list
       return retval
 
 

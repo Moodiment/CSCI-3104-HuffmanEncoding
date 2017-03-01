@@ -26,9 +26,10 @@ class MinHeap:
                 temp = self.hList[i // 2] #Save parent in temporary
                 self.hList[i // 2] = self.hList[i] #Assign child as parent
                 self.hList[i] = temp #Assign parent as child.
-                    operations_counter = operations_counter + 1
+                operations_counter = operations_counter + 1
             i = i // 2 #Move to next height.
         return operations_counter
+
     def BubbleDown(self,i, operations_counter):
         while (i * 2) <= self.currentSize: #While loop to move down the tree.
             mc, operations_counter = self.FindChild(i, operations_counter) # Search for minimum child given i.

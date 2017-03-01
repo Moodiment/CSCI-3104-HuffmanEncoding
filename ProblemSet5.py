@@ -85,18 +85,18 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 
 input_size = 30
 list_operations = []
-list_input = list(range(10)) #creates a list with 10 values.
-# dataDict = dict()
-# for jj in list_input:
-#     sum = 0
-#     for ii in range(100):
-#         randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
-#         adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
-#         sum += operation
-#     avg = sum/100
-#     dataDict.update({jj:avg})
-#
+list_input = list(range(50)) #creates a list with 10 values.
+dataDict = dict()
+for jj in list_input:
+    sum = 0
+    for ii in range(100):
+        randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
+        adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
+        sum += operation
+    avg = sum/100
+    dataDict.update({jj:avg})
 
+print(dataDict)
 
 randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
 adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.

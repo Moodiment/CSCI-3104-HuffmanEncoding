@@ -40,7 +40,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     n = len(f)
     for i in range(n): #O(n) to insert each n.
         new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest. Constant time
-        operations_counter = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
+        operation = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
         operations_counter+=1
         #Fabricating this operation. Why does it work this way?
 

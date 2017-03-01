@@ -18,7 +18,7 @@ sorry i could not travel both and be one traveler, long i stood and looked down\
     the one less traveled by, and that has made all the difference."
 
 
-operations_counter = 0
+total_operations = 0
 
 def string2freq(read_string): # x is a string of symbols from alphabet.
     S = sorted(set(read_string)) #Sorts and takes only unique elemetns from read_string
@@ -35,13 +35,12 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     insert_count = 0
     build_count = 0
 
-    operations_counter = 0
-
     H = MinHeap() # H.initialize
     n = len(f)
     for i in range(n): #O(n) to insert each n.
         new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest. Constant time
-        operation = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
+        H.insert(new_nochild_node) #Insert frequency, characater
+        insert_count+=1
 
     root_node = None
     while(True): #O(n log(n)) time for insertion and then extraction
@@ -49,14 +48,15 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
         Returns the lowest nodes on the tree to build the Huffman tree.
         """
         if (len(H.hList) > 2): #Runs when at least two items remain in the heap
-            i, operations_counter = H.delMin(operations_counter) #Collect two minimum frequency nodes from heap
-            j, operations_counter = H.delMin(operations_counter)
+            i = H.delMin() #Collect two minimum frequency nodes from heap
+            j = H.delMin()
             k_sum = i.freq + j.freq #sum those frequencies to make huffman tree
             new_node = Node(k_sum, -1, i, j)
-            operations_counter = H.insert(new_node,operations_counter) #Add that single node back in to heap
+            build_count+=1
+            H.insert(new_node) #Add that single node back in to heap
         else:
-            # print(build_count)
-            # build_count = log(build_count,2) #Take the log base 2 of each count for this step.
+            print(build_count)
+            build_count = log(build_count,2) #Take the log base 2 of each count for this step.
             break #Stops while loop when 2 or less items remain in the heap
     root_node = H.hList[1] #associates the last item on the heap as the root node
 
@@ -65,7 +65,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     adict = dict(printCodes(root_node,"")) #Passes in the root node into a recursive function
     #this recursive function will return a list of characters with their corresponding binary code.
 
-    return adict, operations_counter
+    return adict, insert_count * build_count
 
 
 def encodeString(x, T): #verbatim from the writeup. Compiles all the code's togeather.
@@ -83,25 +83,9 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 # print(y)
 # print(len(y))
 
-input_size = 30
-list_operations = []
-list_input = list(range(10)) #creates a list with 10 values.
-# dataDict = dict()
-# for jj in list_input:
-#     sum = 0
-#     for ii in range(100):
-#         randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
-#         adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
-#         sum += operation
-#     avg = sum/100
-#     dataDict.update({jj:avg})
-#
-
-
-randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
+input_size =3000
+randChar = sorted(set(''.join(choices(string.ascii_lowercase, k=input_size)))) #generates random characters from input size
 adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
 
-
-
-#print(adict)
+print(adict)
 print(operation)

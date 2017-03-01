@@ -1,8 +1,8 @@
-from collections import Counter,defaultdict
+from statistics import mean
 from HeapTest import MinHeap, Node
 from TreePrint import printTree, printCodes
 from helper import makeHuffmanInput, writeCSV
-from math import log
+from math import ceil
 from random import choices, randrange
 import string
 
@@ -16,7 +16,6 @@ sorry i could not travel both and be one traveler, long i stood and looked down\
    way, i doubted if i should ever come back. i shall be telling this with a sigh\
     somewhere ages and ages hence: two roads diverged in a wood, and i- i took \
     the one less traveled by, and that has made all the difference."
-
 
 operations_counter = 0
 
@@ -41,8 +40,8 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     n = len(f)
     for i in range(n): #O(n) to insert each n.
         new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest. Constant time
-        operation = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
-
+        operations_counter = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
+        operations_counter+=1
         #Fabricating this operation. Why does it work this way?
 
     root_node = None
@@ -87,24 +86,20 @@ def encodeString(x, T): #verbatim from the writeup. Compiles all the code's toge
 
 if(True):
     list_operations = []
-    list_input = list(range(2, 50)) #creates a list with 10 values.
+    list_input = list(range(2, 51)) #creates a list with 10 values.
     dataDict = dict()
     for jj in list_input:
         input_size = jj
-        sum = 0
-        for ii in range(30):
+        for ii in range(number_of_tests):
             randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
-            adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
-            sum += operation
-        avg = sum/100
-        dataDict.update({jj:avg})
 
     print(dataDict)
     writeCSV(dataDict)
-# randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
-# adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
+
+input_size = 30
+randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
+adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
 
 
-
-#print(adict)
-# print(operation)
+print(adict)
+print(operation)

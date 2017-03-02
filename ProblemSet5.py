@@ -84,8 +84,8 @@ print(len(y))
 ######## BEGIN DEBUGGING AND IMPLEMENTATION OF PART 2
 
 if(True): #if is to turn off for debugging.
-    number_of_tests = 100 #Number of tests to complete to average. Higher is better cause pythons random is crap
-    list_input = list(range(2, 51)) #creates a list up to 52-2 values.
+    number_of_tests = 5 #Number of tests to complete to average. Higher is better cause pythons random is crap
+    list_input = list(range(2, 300)) #creates a list up to 52-2 values.
     dataDict = dict() #Creates a dict to store the data.
     for jj in list_input:
         input_size = jj

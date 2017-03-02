@@ -14,5 +14,5 @@ def writeCSV(adict_data):
         writer.writerow(adict_data)
 
 
-#Will write this to data 
-writeCSV({"Error": 404})
+#Will write this to data
+# writeCSV({"Error": 404})

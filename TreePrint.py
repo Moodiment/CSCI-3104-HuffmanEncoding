@@ -16,6 +16,7 @@ def printTree(node): #Not sure if this works.
 def printCodes(node,code):
     T = []
     if (node.char != -1):
+        print(node.char)
         return [(node.char,code)]
         #return [(str(node.char)+ ":" + str(code))]
 

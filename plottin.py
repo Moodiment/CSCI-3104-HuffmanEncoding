@@ -22,9 +22,9 @@ def makePlot():
     loggedOperations = [log(x) for x in operation_list]
     loggedInputSize = [log(x) for x in input_size_list]
 
-    Unlogn = [1.2*x for x in loggedOperations]
-    Lnlogn = [.8*x for x in loggedOperations]
-
+    Unlogn = [log(2*x*log(x,2)) for x in input_size_list]
+    Lnlogn = [log(.5*x*log(x,2)) for x in input_size_list]
+    print(log(Lnlogn[1]))
     plt.gca().set_color_cycle(['red','blue','red'])
     # plt.plot(Lnlogn)
     plt.plot(loggedInputSize,Unlogn)

@@ -40,7 +40,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
     n = len(f)
     for i in range(n): #O(n) to insert each n.
         new_nochild_node = Node(f[i], S[i], None, None) #No children because they are the lowest. Constant time
-        operations = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
+        operations_counter = H.insert(new_nochild_node, operations_counter) #Insert frequency, character
         operations_counter+=1
         #Fabricating this operation. Why does it work this way?
 
@@ -54,6 +54,7 @@ def huffmanEncode(S, f): # f is a vector of symbol frequencies, from above
             j, operations_counter = H.delMin(operations_counter)
             k_sum = i.freq + j.freq #sum those frequencies to make huffman tree
             new_node = Node(k_sum, -1, i, j)
+            # operations_counter+=2
             operations_counter = H.insert(new_node,operations_counter) #Add that single node back in to heap
         else:
             # print(build_count)
@@ -85,7 +86,7 @@ print(len(y))
 
 if(True): #if is to turn off for debugging.
     number_of_tests = 1 #Number of tests to complete to average. Higher is better cause pythons random is crap
-    list_input = list(range(2, 3000)) #creates a list up to 52-2 values.
+    list_input = list(range(2, 3000)) #creates a list up to 3000-2 values, cause it wouldn't work other way.
     dataDict = dict() #Creates a dict to store the data.
     for jj in list_input:
         input_size = jj

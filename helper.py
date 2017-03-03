@@ -12,7 +12,3 @@ def writeCSV(adict_data):
         writer = csv.DictWriter(f, adict_data)
         writer.writeheader()
         writer.writerow(adict_data)
-
-
-#Will write this to data
-# writeCSV({"Error": 404})

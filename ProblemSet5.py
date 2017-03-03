@@ -6,16 +6,7 @@ from math import ceil
 from random import choices
 import string
 
-read_in_string="the road not taken by robert frost two roads diverged in a yellow wood, and \
-sorry i could not travel both and be one traveler, long i stood and looked down\
- one as far as i could to where it bent in the undergrowth; then took the other,\
-  as just as fair, and having perhaps the better claim, because it was grassy \
-  and wanted wear; though as for that the passing there had worn them really \
-  about the same, and both that morning equally lay in leaves no step had trodden\
-   black. oh, i kept the first for another day! yet knowing how way leads on to \
-   way, i doubted if i should ever come back. i shall be telling this with a sigh\
-    somewhere ages and ages hence: two roads diverged in a wood, and i- i took \
-    the one less traveled by, and that has made all the difference."
+read_in_string=""
 
 operations_counter = 0
 
@@ -86,7 +77,7 @@ print(len(y))
 
 if(True): #if is to turn off for debugging.
     number_of_tests = 2 #Number of tests to complete to average. Higher is better cause pythons random is crap
-    list_input = list(range(2, 4000)) #creates a list up to 3000-2 values, cause it wouldn't work other way.
+    list_input = list(range(2, 2**13)) #creates a list up to 3000-2 values, cause it wouldn't work other way.
     dataDict = dict() #Creates a dict to store the data.
     for jj in list_input:
         input_size = jj
@@ -107,7 +98,3 @@ if(True): #if is to turn off for debugging.
 input_size = 30
 randChar = sorted(''.join(choices(string.ascii_letters + string.digits, k=input_size))) #generates random characters from input size
 adict, operation = huffmanEncode(randChar,makeHuffmanInput(len(randChar))) # takes random frequency and encodes.
-
-
-print(adict)
-print(operation)

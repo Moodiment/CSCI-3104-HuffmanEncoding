@@ -64,7 +64,7 @@ class MinHeap:
       operations_counter = self.BubbleDown(1, operations_counter) #Bubbles d own the first element in the list
       return retval, operations_counter
 
-      def operationCount(self): #UNUSED
+      def operationCount(self): #UNUSED/Depriciated.
           pass
 
 

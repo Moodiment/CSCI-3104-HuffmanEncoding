@@ -22,15 +22,17 @@ def makePlot():
     loggedOperations = [log(x) for x in operation_list]
     loggedInputSize = [log(x) for x in input_size_list]
 
-    Lnlogn = [x*log(x)*2 for x in loggedInputSize]
-    Unlogn = [x*log(x)*-2 for x in loggedInputSize]
+    Unlogn = [1.2*x for x in loggedOperations]
+    Lnlogn = [.8*x for x in loggedOperations]
 
     plt.gca().set_color_cycle(['red','blue','red'])
-    plt.plot(Lnlogn)
-    plt.plot(loggedOperations)
+    # plt.plot(Lnlogn)
+    plt.plot(loggedInputSize,Unlogn)
+    plt.plot(loggedInputSize,loggedOperations)
+    plt.plot(loggedInputSize,Lnlogn)
 
 
-    plt.legend(['Upper-Scalar','Actual''Lower-Scalar'])
+    plt.legend(['Upper-Scalar','Actual','Lower-Scalar'])
     plt.show()
 
 makePlot()
